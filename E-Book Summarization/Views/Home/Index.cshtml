@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!----------- start Arabic_summarize -------------->
+<link href="~/AppStyles/CSS/english_summ.css?v=1" rel="stylesheet">
+<div class="form">
+    <div class="container">
+        <div class="box">
+            <form asp-action="summarize_ar_book" method="post" enctype="multipart/form-data">
+                <h2>summarize Arabic book</h2>
+                <div class="inputBox">
+                    <input name="BookName" id="BookName" type="text" required="required" placeholder="Book Name">
+                </div>
+                <div class="inputBox">
+                    <input type="file" required name="file" class="custom-file-input" accept=".txt">
+                </div>
+                <div>
+                    <button type="submit" style="color:white;">send</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+<!----------- end Arabic_summarize ---------------->

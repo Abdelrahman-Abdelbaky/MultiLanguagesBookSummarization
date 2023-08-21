@@ -1,0 +1,85 @@
+﻿@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Register";
+}
+@*<link href="~/AppStyles/CSS/sigin.css" rel="stylesheet">*@
+<style>
+    .parag {
+        max-width: 500px;
+        min-width: 400px;
+        padding: 20px 0 10px 0;
+    }
+
+    .Container {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parag p {
+        text-align: center;
+        line-height: 150%;
+    }
+
+    .form-floating {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    .form-floating label {
+        padding-right: 10px;
+    }
+
+    input#Input_Email {
+        background-color: transparent;
+        color: white;
+        border: solid;/*none*/
+        width: 235px;
+    }
+    button{
+        width:100%;
+        height:40px;
+        background: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color:#444;
+        font-weight: 500;
+        margin-top: 16px;
+    }
+</style>
+
+<div class="Container">
+    <h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
+    <div class="parag">
+        <p id="external-login-description" class="text-info">
+            You've successfully authenticated with <strong>@Model.ProviderDisplayName</strong>.
+            Please enter an email address for this site below and click the Register button to finish
+            logging in.
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="email" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

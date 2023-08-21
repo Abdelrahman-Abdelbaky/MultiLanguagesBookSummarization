@@ -1,0 +1,66 @@
+﻿@{
+     
+    //string filePath = @"path/to/your/file.txt";
+    //List<string> lines = new List<string>();
+
+    //using (StreamReader reader = new StreamReader(filePath))
+    //{
+    //    string line;
+    //    while ((line = reader.ReadLine()) != null)
+    //    {
+    //        lines.Add(line);
+    //    }
+    //}
+    //ViewBag.summary = lines;
+}
+<!------------ start summarize_ar_book ---------------->
+<div class="table">
+    <div class="container">
+        <h1><span>Arabic</span> Summarization book  <a href="/Home/DownloadFile/">Download summarization</a></></h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>summarization</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @{
+                    if (ViewBag.Message != null)
+                    {
+                        if (ViewBag.Message != "Allowed extension is .txt only")
+                        {
+
+                            if (ViewBag.FileNotEmpty != null)
+                            {
+                                    <tr class="alert-danger">@ViewBag.FileNotEmpty</tr>
+                            }
+                            else
+                            {
+                                //<tr class="alert-success">@ViewBag.success</tr>
+                                    <tr>
+                                        <td dir="rtl">
+                                            @{
+                                            foreach (var dataLine in ViewBag.summary)
+                                            {
+                                                        @dataLine
+                                            }
+                                            }
+                                        </td>
+                                    </tr>
+                            }
+                        }
+                        else
+                        {
+                                <tr class="alert-danger">@ViewBag.Message</tr>
+
+                        }
+                    }
+                }
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<!------------ end summarize_ar_book ------------------>

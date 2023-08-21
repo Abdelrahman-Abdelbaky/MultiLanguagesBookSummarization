@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<!----------------- start head --------------------->
+<head>
+    <!----------- start custom css file ------------>
+    <link href="~/AppStyles/CSS/summarize_en_book.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/AppStyles/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <title> E-Book Summarization </title>
+    <link rel="icon" href="~/AppStyles/image/ibooks.png" type="image/icon type">
+    <!---------- end custom css file --------------->
+</head>
+<!--------------------- end head ------------------->
+<!------------------ start body -------------------->
+<body>
+
+    <!------------- start main --------------------->
+    <main>
+
+        <!-------------- start header ------------------>
+        <header>
+            <div class="container">
+
+                <div class="logo">
+                    <a href="/Home/Index"><h3>SUMMARIZATION <span>E-A</span> book</h3></a>
+                </div>
+                <ul>
+                    <li><a href="/EnglishBook/EForm">English Summarization</a></li>
+                    <li><a href="/Home/Index">Arabic Summarization</a></li>
+                    <li><a href="/Home/AboutUs">About Us</a></li>
+                    @*<li><a href="/Home/LoginAndRegister">Sign in</a></li>*@
+                </ul>
+                <div class="icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <partial name="_LoginPartial" />
+
+            </div>
+        </header>
+        <!------------ end header ------------------------->
+        @RenderBody()
+        <!----------- start footer -------------->
+        <footer>
+            <div class="container">
+                <div class="icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+                <p>Copyright &copy;book library 2023</p>
+            </div>
+        </footer>
+        <!----------- end footer -------------->
+
+    </main>
+    <!--------------- end main ------------------------>
+    <!------------- start custom js ------------------->
+    <script src="~/AppStyles/JS/sigin.js"></script>
+    <script src="~/AppStyles/JS/index.js"></script>
+    <!------------- end custom js --------------------->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+<!--------------------- end body ----------------------->
+</html>
+
